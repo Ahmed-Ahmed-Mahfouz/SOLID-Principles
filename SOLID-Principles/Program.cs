@@ -35,6 +35,37 @@
             //---------------------------------------------------------------------------------------
 
             //LSP
+            AccountBase account = new Account();
+            account.Deposit(100);
+            Console.WriteLine($"Account Balance after deposit: {account.Balance}");
+            account.Withdraw(50);
+            Console.WriteLine($"Account Balance after withdrawal: {account.Balance}");
+
+            AccountBase savingsAccount = new SavingsAccount();
+            savingsAccount.Deposit(100); 
+            Console.WriteLine($"Savings Account Balance after deposit: {savingsAccount.Balance}");
+            savingsAccount.Withdraw(50);
+            Console.WriteLine($"Savings Account Balance after withdrawal: {savingsAccount.Balance}");
+
+            //---------------------------------------------------------------------------------------
+
+            //ISP
+            IAudioPlayer audioPlayer = new AudioPlayer();
+            audioPlayer.LoadMedia("audio.mp3");
+            audioPlayer.PlayAudio();
+
+            IVideoPlayer videoPlayer = new VideoPlayer();
+            videoPlayer.LoadMedia("video.mp4");
+            videoPlayer.PlayVideo();
+            videoPlayer.DisplaySubtitles();
+
+            //---------------------------------------------------------------------------------------
+
+            //DIP
+            IFileReader fileReader = new FileReader();
+            IFileWriter fileWriter = new FileWriter();
+            FileProcessor fileProcessor = new FileProcessor(fileReader, fileWriter);
+            fileProcessor.ProcessFile("input.txt", "output.txt");
         }
     }
 }
